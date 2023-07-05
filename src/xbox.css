@@ -1,8 +1,8 @@
 .gamepad-xbox {
   border: 1px solid #333;
   position: relative;
-  width: 400px;
-  height: 300px;
+  width: 300px;
+  height: 275px;
 }
 
 .gamepad-xbox .button,
@@ -28,26 +28,26 @@
 
 .gamepad-xbox .button-Y {
   color: #f7db2b;
-  top: 100px;
-  right: 75px;
+  top: 115px;
+  right: 50px;
 }
 
 .gamepad-xbox .button-B {
   color: #ca4640;
-  top: 125px;
-  right: 50px;
+  top: 140px;
+  right: 25px;
 }
 
 .gamepad-xbox .button-A {
   color: #66ad46;
-  top: 150px;
-  right: 75px;
+  top: 165px;
+  right: 50px;
 }
 
 .gamepad-xbox .button-X {
   color: #2b97cd;
-  top: 125px;
-  right: 100px;
+  top: 140px;
+  right: 75px;
 }
 
 /* D-pad */
@@ -65,22 +65,22 @@
 
 .gamepad-xbox .button-up {
   top: 180px;
-  left: 125px;
+  left: 75px;
 }
 
 .gamepad-xbox .button-down {
   top: 220px;
-  left: 125px;
+  left: 75px;
 }
 
 .gamepad-xbox .button-left {
   top: 200px;
-  left: 105px;
+  left: 55px;
 }
 
 .gamepad-xbox .button-right {
   top: 200px;
-  left: 145px;
+  left: 95px;
 }
 
 /* Shoulder buttons */
@@ -119,12 +119,12 @@
 /* Analog sticks */
 .gamepad-xbox .stick-LS {
   --base-top: 125px;
-  --base-left: 50px;
+  --base-left: 25px;
 }
 
 .gamepad-xbox .stick-RS {
   --base-top: 190px;
-  --base-left: 250px;
+  --base-left: calc(100% - 100px - 35px);
 }
 
 .gamepad-xbox .stick-LS,
@@ -134,8 +134,8 @@
   border-radius: 50%;
   height: 35px;
   width: 35px;
-  top: calc(var(--base-top) + var(--y-value, 0) * 15px);
-  left: calc(var(--base-left) + var(--x-value, 0) * 15px);
+  top: calc(var(--base-top) + var(--y-value, 0) * 10px);
+  left: calc(var(--base-left) + var(--x-value, 0) * 10px);
 }
 
 /* Other buttons */
@@ -158,17 +158,17 @@
 
 .gamepad-xbox .button-select {
   top: 100px;
-  left: 160px;
+  left: 120px;
 }
 
 .gamepad-xbox .button-start {
   top: 100px;
-  right: 160px;
+  right: 120px;
 }
 
 .gamepad-xbox .button-home {
   width: 40px;
   height: 40px;
-  top: 25px;
-  left: 180px;
+  top: 50px;
+  left: calc(50% - 20px);
 }
