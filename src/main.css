@@ -1,0 +1,27 @@
+html {
+  font-family: sans-serif;
+}
+
+.gamepads {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.gamepad {
+  border: 1px solid #333;
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+.gamepad > h2 {
+  margin: 0;
+  margin-block-end: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.button {
+  user-select: none;
+  cursor: default;
+}

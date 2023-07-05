@@ -1,0 +1,174 @@
+.gamepad-xbox {
+  border: 1px solid #333;
+  position: relative;
+  width: 400px;
+  height: 300px;
+}
+
+.gamepad-xbox .button,
+.gamepad-xbox .stick {
+  position: absolute;
+  opacity: calc(8 * var(--button-value, 0) / 10 + 0.2);
+}
+
+/* A, B, X, Y */
+.gamepad-xbox .button-A,
+.gamepad-xbox .button-B,
+.gamepad-xbox .button-X,
+.gamepad-xbox .button-Y {
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  display: grid;
+  place-content: center;
+  font-weight: bold;
+  font-size: 120%;
+  background: #111;
+}
+
+.gamepad-xbox .button-Y {
+  color: #f7db2b;
+  top: 100px;
+  right: 75px;
+}
+
+.gamepad-xbox .button-B {
+  color: #ca4640;
+  top: 125px;
+  right: 50px;
+}
+
+.gamepad-xbox .button-A {
+  color: #66ad46;
+  top: 150px;
+  right: 75px;
+}
+
+.gamepad-xbox .button-X {
+  color: #2b97cd;
+  top: 125px;
+  right: 100px;
+}
+
+/* D-pad */
+.gamepad-xbox .button-up,
+.gamepad-xbox .button-down,
+.gamepad-xbox .button-left,
+.gamepad-xbox .button-right {
+  width: 20px;
+  height: 20px;
+  display: grid;
+  place-content: center;
+  background: #111;
+  color: transparent;
+}
+
+.gamepad-xbox .button-up {
+  top: 180px;
+  left: 125px;
+}
+
+.gamepad-xbox .button-down {
+  top: 220px;
+  left: 125px;
+}
+
+.gamepad-xbox .button-left {
+  top: 200px;
+  left: 105px;
+}
+
+.gamepad-xbox .button-right {
+  top: 200px;
+  left: 145px;
+}
+
+/* Shoulder buttons */
+.gamepad-xbox .button-RB,
+.gamepad-xbox .button-LB,
+.gamepad-xbox .button-RT,
+.gamepad-xbox .button-LT {
+  border: 1px solid #333;
+  border-radius: 5px;
+  height: 25px;
+  width: 75px;
+  display: grid;
+  place-content: center;
+}
+
+.gamepad-xbox .button-RT {
+  top: 20px;
+  right: 25px;
+}
+
+.gamepad-xbox .button-RB {
+  top: 50px;
+  right: 25px;
+}
+
+.gamepad-xbox .button-LT {
+  top: 20px;
+  left: 25px;
+}
+
+.gamepad-xbox .button-LB {
+  top: 50px;
+  left: 25px;
+}
+
+/* Analog sticks */
+.gamepad-xbox .stick-LS {
+  --base-top: 125px;
+  --base-left: 50px;
+}
+
+.gamepad-xbox .stick-RS {
+  --base-top: 190px;
+  --base-left: 250px;
+}
+
+.gamepad-xbox .stick-LS,
+.gamepad-xbox .stick-RS {
+  background: #111;
+  color: transparent;
+  border-radius: 50%;
+  height: 35px;
+  width: 35px;
+  top: calc(var(--base-top) + var(--y-value, 0) * 15px);
+  left: calc(var(--base-left) + var(--x-value, 0) * 15px);
+}
+
+/* Other buttons */
+.gamepad-xbox .button-select,
+.gamepad-xbox .button-start,
+.gamepad-xbox .button-home {
+  border: 1px solid #333;
+  border-radius: 50%;
+  color: #333;
+  display: grid;
+  place-content: center;
+  overflow: hidden;
+}
+
+.gamepad-xbox .button-select,
+.gamepad-xbox .button-start {
+  width: 15px;
+  height: 15px;
+}
+
+.gamepad-xbox .button-select {
+  top: 100px;
+  left: 160px;
+}
+
+.gamepad-xbox .button-start {
+  top: 100px;
+  right: 160px;
+}
+
+.gamepad-xbox .button-home {
+  width: 40px;
+  height: 40px;
+  top: 25px;
+  left: 180px;
+}
