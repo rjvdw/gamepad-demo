@@ -1,10 +1,15 @@
 import { html } from 'lit-html'
 import classNames from 'classnames'
+import { GamepadConfig } from './gamepads/config.ts'
+import { xboxConfig } from './gamepads/xbox.ts'
+import { dualsenseConfig } from './gamepads/dualsense.ts'
 
 export function GamepadInfo(gamepad: Gamepad) {
   let info
   if (isXboxController(gamepad)) {
-    info = XboxController(gamepad)
+    info = renderController(gamepad, xboxConfig)
+  } else if (isDualSenseController(gamepad)) {
+    info = renderController(gamepad, dualsenseConfig)
   } else {
     info = html`<p>Unknown controller</p>`
   }
@@ -22,54 +27,38 @@ function isXboxController(gamepad: Gamepad): boolean {
   return gamepad.id.toLowerCase().indexOf('xbox') !== -1
 }
 
-const XBOX_BUTTONS: [string, number, boolean?][] = [
-  ['A', 0],
-  ['B', 1],
-  ['X', 2],
-  ['Y', 3],
-  ['LB', 4],
-  ['RB', 5],
-  ['LT', 6, true],
-  ['RT', 7, true],
-  ['select', 8],
-  ['start', 9],
-  ['up', 12],
-  ['down', 13],
-  ['left', 14],
-  ['right', 15],
-  ['home', 16],
-]
+function isDualSenseController(gamepad: Gamepad): boolean {
+  return gamepad.id.toLowerCase().indexOf('dualsense') !== -1
+}
 
-const XBOX_STICKS: [string, number, number, number][] = [
-  ['LS', 10, 0, 1],
-  ['RS', 11, 2, 3],
-]
-
-function XboxController(gamepad: Gamepad) {
+function renderController(gamepad: Gamepad, config: GamepadConfig) {
   return html`
-    <div class="gamepad-xbox">
-      ${XBOX_BUTTONS.map(([label, idx, isAnalog = false]) => {
-        const value = gamepad.buttons[idx].value
+    <div class=${classNames('gamepad', config.className)}>
+      ${config.buttons?.map(([label, idx, valueTransformer = false]) => {
+        const value =
+          typeof valueTransformer === 'function'
+            ? valueTransformer(gamepad)
+            : gamepad.buttons[idx].value
 
         return html`<div
           title="${label}"
-          class="${classNames('button', `button-${label}`, {
-            'button-active': !isAnalog && value === 1,
-            'button-analog': isAnalog,
+          class="${classNames('button', `button-${label.replace(/ /g, '-')}`, {
+            'button-active': !valueTransformer && value === 1,
+            'button-analog': valueTransformer,
           })}"
           style="--button-value: ${value}"
         >
           ${label}
         </div>`
       })}
-      ${XBOX_STICKS.map(([label, buttonIdx, axis1Idx, axis2Idx]) => {
+      ${config.sticks?.map(([label, buttonIdx, axis1Idx, axis2Idx]) => {
         const buttonValue = gamepad.buttons[buttonIdx].value
         const xValue = gamepad.axes[axis1Idx]
         const yValue = gamepad.axes[axis2Idx]
 
         return html`<div
           title="${label}"
-          class="${classNames('stick', `stick-${label}`, {
+          class="${classNames('stick', `stick-${label.replace(/ /g, '-')}`, {
             'stick-active': buttonValue === 1,
           })}"
           style="--button-value: ${buttonValue}; --x-value: ${xValue}; --y-value: ${yValue}"

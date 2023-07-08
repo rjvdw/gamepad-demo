@@ -1,0 +1,178 @@
+.gamepad-dualsense {
+  border: 1px solid #333;
+  position: relative;
+  width: 300px;
+  height: 275px;
+}
+
+.gamepad-dualsense .button,
+.gamepad-dualsense .stick {
+  position: absolute;
+  opacity: calc(8 * var(--button-value, 0) / 10 + 0.2);
+}
+
+/* square, cross, circle, triangle */
+.gamepad-dualsense .button-square,
+.gamepad-dualsense .button-cross,
+.gamepad-dualsense .button-circle,
+.gamepad-dualsense .button-triangle {
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  display: grid;
+  place-content: center;
+  overflow: hidden;
+  font-size: 120%;
+  border: 1px solid #111;
+}
+
+.gamepad-dualsense .button-triangle {
+  top: 115px;
+  right: 50px;
+}
+
+.gamepad-dualsense .button-circle {
+  top: 140px;
+  right: 25px;
+}
+
+.gamepad-dualsense .button-cross {
+  top: 165px;
+  right: 50px;
+}
+
+.gamepad-dualsense .button-square {
+  top: 140px;
+  right: 75px;
+}
+
+/* D-pad */
+.gamepad-dualsense .button-up,
+.gamepad-dualsense .button-down,
+.gamepad-dualsense .button-left,
+.gamepad-dualsense .button-right {
+  width: 20px;
+  height: 20px;
+  display: grid;
+  place-content: center;
+  background: #111;
+  color: transparent;
+}
+
+.gamepad-dualsense .button-up {
+  top: 125px;
+  left: 65px;
+}
+
+.gamepad-dualsense .button-down {
+  top: 165px;
+  left: 65px;
+}
+
+.gamepad-dualsense .button-left {
+  top: 145px;
+  left: 45px;
+}
+
+.gamepad-dualsense .button-right {
+  top: 145px;
+  left: 85px;
+}
+
+/* Shoulder buttons */
+.gamepad-dualsense .button-R1,
+.gamepad-dualsense .button-L1,
+.gamepad-dualsense .button-R2,
+.gamepad-dualsense .button-L2 {
+  border: 1px solid #333;
+  border-radius: 5px;
+  height: 25px;
+  width: 75px;
+  display: grid;
+  place-content: center;
+}
+
+.gamepad-dualsense .button-R2 {
+  top: 20px;
+  right: 25px;
+}
+
+.gamepad-dualsense .button-R1 {
+  top: 50px;
+  right: 25px;
+}
+
+.gamepad-dualsense .button-L2 {
+  top: 20px;
+  left: 25px;
+}
+
+.gamepad-dualsense .button-L1 {
+  top: 50px;
+  left: 25px;
+}
+
+/* Analog sticks */
+.gamepad-dualsense .stick-LS {
+  --base-top: 190px;
+  --base-left: 90px;
+}
+
+.gamepad-dualsense .stick-RS {
+  --base-top: 190px;
+  --base-left: calc(100% - 90px - 35px);
+}
+
+.gamepad-dualsense .stick-LS,
+.gamepad-dualsense .stick-RS {
+  background: #111;
+  color: transparent;
+  border-radius: 50%;
+  height: 35px;
+  width: 35px;
+  top: calc(var(--base-top) + var(--y-value, 0) * 10px);
+  left: calc(var(--base-left) + var(--x-value, 0) * 10px);
+}
+
+/* touchpad */
+.gamepad-dualsense .button-touch-pad {
+  border: 1px solid #111;
+  border-radius: 5px;
+  color: transparent;
+  left: 115px;
+  right: 115px;
+  top: 100px;
+  height: 50px;
+}
+
+/* Other buttons */
+.gamepad-dualsense .button-create,
+.gamepad-dualsense .button-share {
+  border: 1px solid #333;
+  color: transparent;
+  border-radius: 4px;
+  overflow: hidden;
+  width: 8px;
+  height: 16px;
+  top: 110px;
+}
+
+.gamepad-dualsense .button-create {
+  left: 100px;
+  transform: rotate(-12deg);
+}
+
+.gamepad-dualsense .button-share {
+  right: 100px;
+  transform: rotate(12deg);
+}
+
+.gamepad-dualsense .button-PS5 {
+  background: #000;
+  color: transparent;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  top: 190px;
+  left: calc(50% - 20px);
+}
